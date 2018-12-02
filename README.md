@@ -1,4 +1,39 @@
 # DeepCart
+This is the hard work of Deep and contributing this code for free for learning purpose.
+No has copy rights on this except code owner.
+
+I would request you to please subscribe , like and comment on my channel.
+The way I am hellping you ,please help me as well.
+
+
+Here are the video tutorials of this comeplete series.
+
+Lesson-1
+https://youtu.be/JjVyvy3ctFE
+
+Lesson-2
+https://youtu.be/SrmShkVhKhU
+
+Lesson-3
+https://youtu.be/wWknX6eaWjg
+
+Lesson-4
+https://youtu.be/CLqoEHt2aNk
+
+Lesson-5
+https://youtu.be/orRQrwPpbac
+
+Lesson-6
+https://youtu.be/qbGdKW-RWw0
+
+Lesson-7
+https://youtu.be/HeYsF01c5iw
+
+Lesson-8
+https://youtu.be/Oylx-hpaUDc
+
+Please , please subscribe my channel.Comment your views about my channel and social work of giving the source code.
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
 
