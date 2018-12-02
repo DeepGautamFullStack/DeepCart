@@ -1,0 +1,34 @@
+
+<div id="collapseExample" [ngbCollapse]="false">
+  <div class="card">
+    <div class="card-body">
+      <p *ngFor="let alert of alerts">
+        <ngb-alert style="width: 300px;" [type]="alert.type" (close)="closeAlert(alert)">{{ alert.message }}</ngb-alert>
+      </p>
+        <div *ngFor="let cat of allProducts" >
+           <h3 class="modal-header" style="color: cornflowerblue" >{{cat.Category}}</h3>
+
+                 <table class="table table-bordered table-responsive" style="display: inline;margin-left: 5px;" *ngFor="let prod of cat.Products">
+               <tr>
+                 <td>
+                    <img src="data:image/png;base64,{{prod.ImageFile}}" width="180px;" height="300px;"/>
+                 </td>
+               </tr>
+               <tr>
+                 <td>{{prod.Name}}</td>
+               </tr>
+               <tr>
+                 <td>Price:{{prod.UnitPrice}}</td>
+               </tr>
+               <tr>
+                  <td>{{prod.Description}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button"   class="btn btn-outline-success" (click)="OnAddCart(prod)"><b>Add to cart</b></button>
+                    </td>
+                  </tr>
+             </table>
+        </div>
+</div>
+

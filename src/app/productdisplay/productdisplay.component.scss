@@ -1,0 +1,27 @@
+.catheader
+{
+    font-size: xx-large;
+    font-style: italic;
+    font-weight: bold;
+}
+.prodTable {
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 20px; 
+    width: 250px;
+    height: 200px; 
+    margin: 2em;
+}
+.after-prodTable {
+    clear: left;
+  }
+
+.box {
+    float: left;
+    width: 200px;
+    height: 150px;
+    margin: 1em;
+  }
+  .after-box {
+    clear: left;
+  }

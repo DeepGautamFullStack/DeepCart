@@ -6,10 +6,20 @@ import {FormsModule,ReactiveFormsModule,Validators,FormControl,FormGroup,FormBui
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AdminComponent } from './admin/admin.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProductdisplayComponent } from './productdisplay/productdisplay.component';
+import { MycartComponent } from './mycart/mycart.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProfileComponent,
+    AdminComponent,
+    DashboardComponent,
+    ProductdisplayComponent,
+    MycartComponent,
   ],
   imports: [
     BrowserModule,NgbModule,FormsModule,ReactiveFormsModule,HttpClientModule,

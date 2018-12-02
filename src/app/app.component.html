@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <!-- <a class="navbar-brand" href="#">DeepCart</a> -->
-  <img src="./assets/images/DeepCart.PNG"> 
+  
+  <a class="navbar-brand" routerLink='/productdisplay'>
+  <img src="./assets/images/DeepCart.PNG"></a>
   <form class="form-inline my-2 my-lg-0" style="padding-left: 20px;">
       <input class="form-control mr-lg-2" style="width: 600px;"  type="search" placeholder="Search for product, brand and more" aria-label="Search">
       
@@ -12,9 +13,20 @@
   <div class="collapse navbar-collapse" style="padding-left: 150px;" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
 
-      <li class="nav-item active">
+      <li class="nav-item active" *ngIf="!isLoggedIn">
         <a class="nav-link navbar-text"  (click)="open(content)" href="#"><b>Login & Signup</b></a>
       </li>
+      <div class="btn-group mr-3" *ngIf="isLoggedIn">
+        <button type="button" class="btn btn-primary"><b>User Details</b></button>
+        <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+          <button class="btn btn-primary dropdown-toggle-split" ngbDropdownToggle></button>
+          <div class="dropdown-menu" ngbDropdownMenu>
+            <button routerLink='/profile' class="dropdown-item">Profile</button>
+            <button  routerLink='/dashboard' class="dropdown-item">My Dashboard</button>
+            <button class="dropdown-item" (click)="LogOut()">LogOut</button>
+          </div>
+        </div>
+      </div>
       <div class="btn-group mr-3">
           <button type="button" class="btn btn-primary"><b>More</b></button>
           <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
@@ -27,7 +39,14 @@
           </div>
         </div>
       <li class="nav-item active">
-          <a class="nav-link" href="#"><b>Cart</b></a>
+          <!-- <a class="nav-link" href="#"><b>Cart</b></a> -->
+          <button type="button" routerLink='/mycart' class="btn btn-primary">
+            <b>Cart </b> <span class="badge badge-light">{{cartItemCount}}</span>
+            <span class="sr-only">unread messages</span>
+          </button>
+        </li>
+        <li class="nav-item active">
+          <a routerLink='/admin' class="nav-link" href="#"><b>Admin</b></a>
         </li>
     </ul>
 
@@ -49,22 +68,22 @@
           <ng-template ngbTabTitle><b>Login</b> </ng-template>
           <ng-template ngbTabContent >
             <br>
-              <form>
+              <form [formGroup]="loginForm">
                   <div class="form-group">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="basic-addon1">@</span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                        <input type="text" formControlName="UserName" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="basic-addon1">*</span>
                         </div>
-                        <input type="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
+                        <input type="password" formControlName="Password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
                   </div>
-                  <button type="button" style="margin-left: 39%;" class="btn btn-outline-success" (click)="c('Save click')"><b>Login</b></button>
+                  <button type="button" style="margin-left: 39%;" [disabled]="!loginForm.valid" class="btn btn-outline-success" (click)="Login()"><b>Login</b></button>
                 </form>
           </ng-template>
         </ngb-tab>
@@ -186,12 +205,19 @@
   </div>
   <div class="modal-footer">
     <p *ngFor="let alert of alerts">
-      <ngb-alert style="width: 758px;" [type]="alert.type" (close)="staticAlertClosed = true">{{ alert.message }}</ngb-alert>
+      <ngb-alert style="width: 758px;" [type]="alert.type" (close)="closeAlert(alert)">{{ alert.message }}</ngb-alert>
     </p>
   </div>
 </ng-template>
-<hr>
 
-<pre>{{closeResult}}</pre>
 <!--  Model Code End -->
-<router-outlet></router-outlet>
+<div class="row">
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-10">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="col-md-1">
+      </div>
+</div>
+
